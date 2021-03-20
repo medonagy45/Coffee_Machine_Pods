@@ -1,3 +1,4 @@
+const utils = require("./utils");
 const product_type = {
   COFFEE_MACHINE_LARGE: "COFFEE_MACHINE_LARGE",
   COFFEE_MACHINE_SMALL: "COFFEE_MACHINE_SMALL",
@@ -63,20 +64,7 @@ let data = [
   },
 ];
 getData = (filter) => {
-  if (!filter) return Object.keys(data);
-  let filteredData = [];
-  for (let i = 0; i < data.length; i++) {
-    let machine = data[i];
-    let matched = true;
-    for (key in filter) {
-      if (String(machine[key]) != filter[key]) {
-        matched = false;
-        break;
-      }
-    }
-    if (matched) filteredData.push(machine.SKU);
-  }
-  return filteredData;
+  return utils.getData(data, filter);
 };
 module.exports = {
   getMachines: getData,
