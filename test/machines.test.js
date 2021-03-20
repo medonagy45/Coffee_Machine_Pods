@@ -55,8 +55,11 @@ describe("Testing Pods", function () {
           "CM103",
           "EM003",
         ]);
-        requester.close();
         done();
       });
+  });
+
+  after(() => {
+    requester.close();
   });
 });

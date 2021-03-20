@@ -89,8 +89,11 @@ describe("Testing Pods", function () {
         expect(res).to.have.status(200);
 
         expect(res.body.pods).to.deep.equal(["EP007", "EP017"]);
-        requester.close();
+
         done();
       });
+  });
+  after(() => {
+    requester.close();
   });
 });
